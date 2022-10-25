@@ -1,0 +1,89 @@
+package executarpessoa;
+
+/**
+ *
+ * @author usuario
+ */
+public class Pessoas {
+    
+    private String nome;
+    private int ano, idade;
+    private String sexo;
+    private float salario, totalsalario;
+    private float altura, imc, peso;
+    
+    public Pessoas() {
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public float getSalario() {
+        return salario;
+    }
+
+    public void setSalario(float salario) {
+        this.salario = salario;
+    }
+
+    public float getPeso() {
+        return peso;
+    }
+
+    public void setPeso(float peso) {
+        this.peso = peso;
+    }
+
+    public float getAltura() {
+        return altura;
+    }
+
+    public void setAltura(float altura) {
+        this.altura = altura;
+    }
+    
+    public int idade(){
+      idade = 2022 - ano;
+      return idade;
+    }
+     
+    public float calcularImc(){
+     imc = peso / (altura*altura);
+     return imc;
+    }
+    
+    public float acumuloSalarios(){
+        totalsalario = totalsalario+salario;
+        return totalsalario;
+    }
+    
+  
+    
+    @Override
+    public String toString() {
+        return "Pessoa: " + "nome=" + nome + ", ano=" + ano + ", sexo=" + sexo + ", salario=" + salario + ", peso=" + peso + ", altura=" + altura;
+    }
+    
+    
+}
