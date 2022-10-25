@@ -1,0 +1,58 @@
+package executarpessoas;
+
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author aluno
+ */
+public class ExecutarPessoas {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       ArrayList<Pessoas> Pessoas = new ArrayList<>();
+        Pessoas pessoa = new Pessoas();
+       
+        int p, f=0, m=0;
+       
+       p = Integer.parseInt(JOptionPane.showInputDialog("Informe quantas pessoas serão cadastradas:"));
+               
+      for (int i = 0; i < p; i++) {
+        pessoa = new Pessoas();  
+        pessoa.setNome(JOptionPane.showInputDialog("Informe o Nome:"));
+        pessoa.setAno(Integer.parseInt(JOptionPane.showInputDialog("Informe seu ano de nascimento:")));
+        pessoa.setSexo(JOptionPane.showInputDialog("Informe seu sexo (F/M):"));
+        pessoa.setSalario(Float.parseFloat(JOptionPane.showInputDialog("Informe seu salario:")));
+        pessoa.setPeso(Float.parseFloat(JOptionPane.showInputDialog("Informe seu peso:")));
+        pessoa.setAltura(Float.parseFloat(JOptionPane.showInputDialog("Informe a altura:")));
+        Pessoas.add(pessoa);
+     }
+        if ("f".equals(pessoa.getSexo()) || "F".equals(pessoa.getSexo())){
+          f++;
+      }  else{
+          m++;
+      }
+        float media = pessoa.acumuloSalarios()/p;
+        
+      pessoa.calcularImc();
+      pessoa.idade();
+      pessoa.acumuloSalarios();
+      
+      
+      
+      for (int i = 0; i < p; i++) {
+        pessoa = Pessoas.get(i);
+        JOptionPane.showMessageDialog(null," DADOS DA PESSOA" + "\n Nome: " + pessoa.getNome() + "\n Ano: " + pessoa.getAno() + "\n Sexo: " + pessoa.getSexo() + "\n Salario: " + pessoa.getSalario() + "\n Peso: " + pessoa.getPeso() + "\n Altura: " + pessoa.getAltura() );
+        JOptionPane.showMessageDialog(null," Idade em anos da pessoa: " + pessoa.idade() + "\n Imc: " + pessoa.calcularImc() );
+        JOptionPane.showMessageDialog(null," Número de pessoas cadastradas: " + p + "\n Quantidade de mulheres: " + f +"\n Quantidade de homens: " + m );
+        JOptionPane.showMessageDialog(null," Acumulo dos salários: " + pessoa.acumuloSalarios() + "\n Média: " + media );
+     }
+      
+
+      
+    }
+    
+}
